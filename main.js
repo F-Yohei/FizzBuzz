@@ -9,58 +9,20 @@ const listAdd = (a) => {
 };
 
 button.addEventListener("click", () => {
-  const fizzNum = document.getElementById("fizzNum").value;
-  const buzzNum = document.getElementById("buzzNum").value;
+  const fizzNum = parseInt(document.getElementById("fizzNum").value);
+  const buzzNum = parseInt(document.getElementById("buzzNum").value);
 
-  if (fizzNum === "" || typeof fizzNum === "string") {
-    listAdd("整数値を入力してください");
-  } else if (buzzNum === "" || typeof buzzNum === "string") {
-    listAdd("整数値を入力してください");
-  }
-
-  for (i = 1; i < 100; i++) {
-    if (i % fizzNum === 0 && i % buzzNum === 0) {
-      listAdd("FizzBuzz" + i);
-    } else if (i % fizzNum === 0) {
-      listAdd("Fizz" + i);
-    } else if (i % buzzNum === 0) {
-      listAdd("Buzz" + i);
+  if (typeof fizzNum == "number" && typeof buzzNum == "number") {
+    for (i = 1; i < 100; i++) {
+      if (i % fizzNum === 0 && i % buzzNum === 0) {
+        listAdd("FizzBuzz" + i);
+      } else if (i % fizzNum === 0) {
+        listAdd("Fizz" + i);
+      } else if (i % buzzNum === 0) {
+        listAdd("Buzz" + i);
+      }
     }
+  } else {
+    listAdd("整数値を入力してください");
   }
 });
-
-// button.addEventListener("click", () => {
-//   const fizzbuzzList = document.getElementById("fizzbuzzList");
-
-//   for (i = fizzNum, j = buzzNum; i <= 100; i *= 2, j *= 2) {
-//     const fizzli = document.createElement("li");
-//     fizzli.innerHTML = "Fizz" + i;
-//     fizzbuzzList.appendChild(fizzli);
-
-//     const buzzli = document.createElement("li");
-//     buzzli.innerHTML = "Buzz" + j;
-//     fizzbuzzList.appendChild(buzzli);
-//   }
-// });
-
-// if (fizzNum === "" || typeof fizzNum === "string") {
-//   const test = document.createElement("li");
-//   test.innerHTML = "整数値を入力してください";
-//   fizzbuzzList.appendChild(test);
-// } else if (buzzNum === "" || typeof buzzNum === "string") {
-//   const test = document.createElement("li");
-//   test.innerHTML = "整数値を入力してください";
-//   fizzbuzzList.appendChild(test);
-// }
-
-// もしfizzNumとbuzzNumの値が同じだったらFizzBuzz（数字）と表示させる。
-// if (i === j) {
-//     fizzli.innerHTML = "FizzBuzz" + i;
-//     fizzbuzzList.appendChild(fizzli);
-//   }
-
-// if (i % fizzNum === 0 && j % buzzNum === 0) {
-//     const fizzli = document.createElement("li");
-//     fizzbuzzList.appendChild(fizzli);
-//     fizzli.innerHTML = "FizzBuzz" + i;
-//   }
